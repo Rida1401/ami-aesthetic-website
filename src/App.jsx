@@ -9,6 +9,7 @@ import TermsAndConditions from './pages/TermsAndConditions';
 import ProductsPage from './pages/ProductsPage';
 import InsightsPage from './pages/InsightsPage';
 import BackToTop from './components/BackToTop';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <BackToTop />
+      <FloatingWhatsApp />
       <Footer />
     </BrowserRouter>
   );
