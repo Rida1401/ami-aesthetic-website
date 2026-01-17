@@ -34,7 +34,7 @@ function BlogSection({ isHome = false }) {
 
   return (
     <>
-    <section className="py-20 bg-gray-50 px-6">
+    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

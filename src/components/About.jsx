@@ -30,24 +30,29 @@ function About() {
   ]
 
   return (
-    <section id="about" className="relative px-6 py-20 bg-gray-50 overflow-hidden">
+    <section id="about" className="relative px-6 py-24 bg-white overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0 opacity-80">
+      <div className="absolute inset-0 z-0">
         <img 
           src={bgImage} 
-          alt="Abstract technology background" 
-          className="w-full h-full object-cover object-center"
+          alt="Background" 
+          className="w-full h-full object-cover opacity-20"
         />
       </div>
+      {/* Organic Background Elements */}
+      <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-blue-50 blur-3xl opacity-60"></div>
+      <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-purple-50 blur-3xl opacity-60"></div>
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header & Intro with Image */}
-        <div className="flex flex-col lg:flex-row items-center gap-12 mb-16">
-          <div className="w-full lg:w-1/2">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+        <div className="flex flex-col lg:flex-row items-center gap-16 mb-20">
+          <div className="w-full lg:w-1/2 relative">
+            {/* Organic Blob behind image */}
+            <div className="absolute inset-0 bg-blue-100 rounded-[40%_60%_70%_30%_/_40%_50%_60%_50%] transform rotate-6 scale-105 opacity-60 blur-lg"></div>
+            <div className="relative rounded-[2rem] lg:rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] overflow-hidden shadow-2xl border-4 border-white transform transition-transform hover:scale-[1.02] duration-500">
               <img 
                 src={sideImage} 
-                alt="About Us" 
+                alt="Advanced aesthetic laser machine in a modern clinic setting" 
                 className="w-full h-auto object-cover"
               />
             </div>
@@ -70,7 +75,8 @@ function About() {
         </div>
 
         {/* What We Do */}
-        <div className="bg-white/60 backdrop-blur-md p-8 rounded-xl shadow-sm border border-gray-100 mb-12">
+        <div className="bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] shadow-lg border border-white/50 mb-16 relative overflow-hidden group hover:shadow-2xl transition-all duration-500">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-50 to-transparent rounded-full blur-2xl opacity-50 -mr-16 -mt-16"></div>
           <h3 className="text-2xl font-bold text-gray-900 mb-6">What We Do</h3>
           <p className="text-gray-700 mb-4">
             We offer end-to-end solutions designed to support clinics operationally and technologically, including:
@@ -78,7 +84,11 @@ function About() {
           <ul className="grid md:grid-cols-2 gap-4 mb-6">
             {["Sale of advanced laser and aesthetic machines", "Flexible rental options for clinics and practitioners", "Pan-India delivery with secure handling", "Installation, training, and technician support"].map((item, index) => (
               <li key={index} className="flex items-start gap-3 text-gray-700">
-                <span className="text-blue-500 mt-1 font-bold">›</span>
+                <span className="text-blue-500 mt-1 font-bold flex-shrink-0">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </span>
                 {item}
               </li>
             ))}

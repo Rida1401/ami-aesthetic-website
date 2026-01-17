@@ -4,7 +4,7 @@ function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
 
-  const bgImage = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRB8EZe7Sn4jvutUsBdir-bWyDLl-ZkdLTO_nu5GhBBBZUZhLe4";
+  const bgImage = "https://i.pinimg.com/1200x/4e/af/1b/4eaf1b42aad98ecfa57f6b806684326e.jpg";
 
   useEffect(() => {
     document.title = "Contact";
@@ -49,14 +49,18 @@ function Contact() {
 
   return (
     <section 
-      className="min-h-screen bg-cover bg-center bg-fixed"
+      className="min-h-screen relative bg-cover bg-center bg-fixed"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      <div className="max-w-6xl mx-auto px-6 py-16">
-        <h1 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-md mb-12">
+      <div className="absolute inset-0 bg-black/60"></div>
+      
+      <div className="relative z-10 pt-32 pb-10 text-center">
+        <h1 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg">
           Contact Us
         </h1>
+      </div>
 
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pb-24">
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-6">
@@ -111,21 +115,44 @@ function Contact() {
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
 
+              <div className="grid md:grid-cols-2 gap-5">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
+                  <input type="text" id="name" name="name" required className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50" placeholder="John Doe" />
+                </div>
+                <div>
+                  <label htmlFor="clinicName" className="block text-sm font-semibold text-gray-700 mb-2">Clinic Name</label>
+                  <input type="text" id="clinicName" name="clinic_name" className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50" placeholder="Skin Care Clinic" />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-5">
+                <div>
+                  <label htmlFor="location" className="block text-sm font-semibold text-gray-700 mb-2">Location</label>
+                  <input type="text" id="location" name="location" required className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50" placeholder="City, State" />
+                </div>
+                <div>
+                  <label htmlFor="interest" className="block text-sm font-semibold text-gray-700 mb-2">I am interested in</label>
+                  <select id="interest" name="interest" className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50 text-gray-700">
+                    <option value="Buying Machine">Buying a Machine</option>
+                    <option value="Rental">Rental Options</option>
+                    <option value="Service">Service/Repair</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                  </select>
+                </div>
+              </div>
+
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
-                <input type="text" name="name" required className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50" placeholder="John Doe" />
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                <input type="email" id="email" name="email" required className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50" placeholder="john@example.com" />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
-                <input type="email" name="email" required className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50" placeholder="john@example.com" />
+                <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50" placeholder="+91 98765 43210" />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
-                <input type="tel" name="phone" required className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50" placeholder="+91 98765 43210" />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
-                <textarea rows="4" name="message" required className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50" placeholder="Tell us about your requirements..."></textarea>
+                <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                <textarea id="message" rows="4" name="message" required className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50" placeholder="Tell us about your requirements..."></textarea>
               </div>
               <button type="submit" disabled={isSubmitting} className="w-full bg-blue-600 text-white py-4 rounded-lg font-bold hover:bg-blue-700 transition shadow-md transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2">
                 {isSubmitting ? (

@@ -5,15 +5,9 @@ function EndToEndSolution() {
   const bgImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBsVB26m5iofB24yilLGZHJuVQWhJS9dnEPA&s";
 
   return (
-    <section className="relative py-24 bg-gray-50">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0 opacity-10">
-        <img 
-          src={bgImage} 
-          alt="Business partnership handshake" 
-          className="w-full h-full object-cover"
-        />
-      </div>
+    <section className="relative py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+      {/* Organic shapes */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-r from-blue-50/40 via-transparent to-purple-50/40 blur-3xl pointer-events-none z-0"></div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
@@ -26,7 +20,7 @@ function EndToEndSolution() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             { title: "Machine Sales", desc: "High-quality aesthetic lasers available for purchase with warranty." },
             { title: "Rental Options", desc: "Flexible rental plans to suit your clinic's needs and budget." },
@@ -34,8 +28,8 @@ function EndToEndSolution() {
             { title: "Technician Support", desc: "24/7 technical assistance, maintenance, and on-site repairs." },
           ].map((item, index) => (
             <RevealOnScroll key={index} delay={index * 200}>
-              <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100 h-full">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-blue-600 font-bold text-xl">
+              <div className="bg-white/80 backdrop-blur-sm p-8 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-300 border border-white/50 h-full group hover:-translate-y-2">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl flex items-center justify-center mb-6 text-blue-600 font-bold text-xl shadow-inner group-hover:scale-110 transition-transform">
                   {index + 1}
                 </div>
                 <h4 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h4>

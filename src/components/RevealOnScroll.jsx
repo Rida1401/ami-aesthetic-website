@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const RevealOnScroll = ({ children, delay = 0 }) => {
+const RevealOnScroll = ({ children, delay = 0, className = "" }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
@@ -22,7 +22,7 @@ const RevealOnScroll = ({ children, delay = 0 }) => {
   }, []);
 
   return (
-    <div ref={ref} style={{ transitionDelay: `${delay}ms` }} className={`transition-all duration-1000 ease-out transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}>
+    <div ref={ref} style={{ transitionDelay: `${delay}ms` }} className={`transition-all duration-1000 ease-out transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"} ${className}`}>
       {children}
     </div>
   );

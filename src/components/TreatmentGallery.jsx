@@ -27,7 +27,7 @@ function TreatmentGallery() {
   ];
 
   return (
-    <section className="py-20 bg-gray-50 px-6">
+    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 px-6">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-center text-blue-800 mb-4">
           Real Clinical Results

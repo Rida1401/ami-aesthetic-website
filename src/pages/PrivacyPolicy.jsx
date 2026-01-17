@@ -7,7 +7,7 @@ function PrivacyPolicy() {
   }, []);
 
   return (
-    <section className="py-24 px-6 bg-gray-50 min-h-screen">
+    <section className="py-24 px-6 bg-gradient-to-br from-slate-50 via-white to-blue-50 min-h-screen">
       <div className="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Privacy Policy</h1>
 

@@ -32,7 +32,7 @@ function Products() {
   return (
     <>
       {/* Main Content */}
-      <section id="products-list" className="relative px-6 py-20 bg-gray-50 overflow-hidden">
+      <section id="products-list" className="relative px-6 py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden">
         {/* Background Blobs */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-20 -translate-y-1/2"></div>
