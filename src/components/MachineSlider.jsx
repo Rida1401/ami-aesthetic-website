@@ -17,10 +17,10 @@ function MachineSlider() {
       </h2>
 
       {/* Custom Navigation Arrows */}
-      <div className="swiper-button-prev-custom absolute left-2 md:-left-8 top-1/2 z-20 -translate-y-1/2 cursor-pointer text-blue-600 bg-white/90 hover:bg-white rounded-full p-3 shadow-lg transition-all select-none">
+      <div className="swiper-button-prev-custom hidden md:block absolute left-2 md:-left-8 top-1/2 z-20 -translate-y-1/2 cursor-pointer text-blue-600 bg-white/90 hover:bg-white rounded-full p-3 shadow-lg transition-all select-none">
         ❮
       </div>
-      <div className="swiper-button-next-custom absolute right-2 md:-right-8 top-1/2 z-20 -translate-y-1/2 cursor-pointer text-blue-600 bg-white/90 hover:bg-white rounded-full p-3 shadow-lg transition-all select-none">
+      <div className="swiper-button-next-custom hidden md:block absolute right-2 md:-right-8 top-1/2 z-20 -translate-y-1/2 cursor-pointer text-blue-600 bg-white/90 hover:bg-white rounded-full p-3 shadow-lg transition-all select-none">
         ❯
       </div>
 
@@ -68,7 +68,7 @@ function MachineSlider() {
           </div>
         </SwiperSlide>
 
-        {applications.map((app) => (
+        {(Array.isArray(applications) ? applications : []).map((app) => (
           <SwiperSlide key={app.id} className="h-auto py-4">
             <div className="h-full">
               <ApplicationCard application={app} />

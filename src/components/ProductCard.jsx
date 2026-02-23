@@ -2,38 +2,44 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import articles from "../data/articles";
+import ProductSchema from "./ProductSchema";
 
 function ProductCard({ product, isLink = false, vertical = false, onCompare, isSelected }) {
   const [showModal, setShowModal] = useState(false);
 
   // Filter related articles based on product name/type
-  const relatedArticles = articles.filter(article => {
+  const relatedArticles = (Array.isArray(articles) ? articles : []).filter(article => {
     const name = product.name.toLowerCase();
     const id = article.id;
 
-    // Diode Laser -> Hair Removal (1), Choosing Laser (3)
-    if (name.includes("diode") && (id === 1 || id === 3)) return true;
+    // Diode Laser -> Hair Removal (3), Choosing Laser (6), IPL vs Laser (5)
+    if (name.includes("diode") && (id === 3 || id === 6 || id === 5)) return true;
 
-    // Nd:YAG -> IPL vs Laser (2), Choosing Laser (3)
-    if (name.includes("nd:yag") && (id === 2 || id === 3)) return true;
+    // Nd:YAG -> Choosing Laser (6), Safety (7)
+    if (name.includes("nd:yag") && (id === 6 || id === 7)) return true;
 
-    // IPL -> IPL vs Laser (2)
-    if (name.includes("ipl") && id === 2) return true;
+    // IPL -> IPL vs Laser (5)
+    if (name.includes("ipl") && id === 5) return true;
 
     // RF / HIFU / Microneedling -> RF Skin Tightening (4)
     if ((name.includes("rf") || name.includes("hifu")) && id === 4) return true;
 
-    // Cryolipolysis / Cavitation -> Fat Reduction (5)
-    if ((name.includes("cryolipolysis") || name.includes("cavitation")) && id === 5) return true;
+    // Cryolipolysis / Cavitation -> Fat Reduction (2)
+    if ((name.includes("cryolipolysis") || name.includes("cavitation")) && id === 2) return true;
     
-    // Emerging Tech -> Vaginal, Blue Light, LLLT, Fractional
-    if ((name.includes("vaginal") || name.includes("blue light") || name.includes("lllt") || name.includes("fractional")) && id === 7) return true;
+    // Emerging Tech -> Emerging Trends (1)
+    if ((name.includes("vaginal") || name.includes("blue light") || name.includes("lllt") || name.includes("fractional")) && id === 1) return true;
 
     return false;
   });
 
   return (
     <>
+      {/* Structured Data for SEO */}
+      <ProductSchema product={product} />
+
+      {/* Structured Data for SEO */}
+
       <div className={`w-full mx-auto bg-white flex flex-col h-full transition-all duration-300 relative ${
         vertical 
           ? "group max-w-xs rounded-2xl p-4 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2" 
@@ -71,6 +77,7 @@ function ProductCard({ product, isLink = false, vertical = false, onCompare, isS
               src={product.image}
               alt={product.name}
               className="h-48 w-auto object-contain transition-transform duration-500 group-hover:scale-110"
+              loading="lazy"
             />
           </div>
         ) : (
@@ -78,6 +85,7 @@ function ProductCard({ product, isLink = false, vertical = false, onCompare, isS
             src={product.image}
             alt={product.name}
             className="w-full md:w-1/2 h-56 object-contain"
+            loading="lazy"
           />
         )}
 

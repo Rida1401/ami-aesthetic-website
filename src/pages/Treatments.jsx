@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
+import SEO from '../components/SEO';
 import {
   Zap,
   Target,
@@ -14,30 +15,13 @@ import {
 } from "lucide-react";
 
 const Treatments = () => {
-  useEffect(() => {
-    document.title = "Treatments | Ami Aesthetic";
-
-    let metaDesc = document.querySelector("meta[name='description']");
-    if (!metaDesc) {
-      metaDesc = document.createElement("meta");
-      metaDesc.name = "description";
-      document.head.appendChild(metaDesc);
-    }
-    metaDesc.content =
-      "Discover advanced aesthetic treatments at Ami Aesthetic including laser hair reduction, skin rejuvenation, body contouring, acne care, and hair restoration.";
-
-    let metaKeywords = document.querySelector("meta[name='keywords']");
-    if (!metaKeywords) {
-      metaKeywords = document.createElement("meta");
-      metaKeywords.name = "keywords";
-      document.head.appendChild(metaKeywords);
-    }
-    metaKeywords.content =
-      "aesthetic treatments, laser hair reduction, skin rejuvenation, acne treatment, body contouring, hair PRP";
-  }, []);
-
   return (
     <section className="py-24 px-6 bg-gradient-to-br from-slate-50 via-white to-blue-50 min-h-screen relative overflow-hidden">
+      <SEO 
+        title="Treatments" 
+        description="Discover advanced aesthetic treatments at Ami Aesthetic including laser hair reduction, skin rejuvenation, body contouring, acne care, and hair restoration."
+        keywords="aesthetic treatments, laser hair reduction, skin rejuvenation, acne treatment, body contouring, hair PRP"
+      />
       {/* Organic Background Blobs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
         <div className="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-blue-100/40 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>

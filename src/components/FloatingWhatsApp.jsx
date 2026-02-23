@@ -1,11 +1,25 @@
 import React from "react";
+import ReactGA from "react-ga4";
 
 function FloatingWhatsApp() {
+  const handleClick = () => {
+    try {
+      ReactGA.event({
+        category: "Conversion",
+        action: "WhatsApp Click",
+        label: "Floating Button"
+      });
+    } catch (error) {
+      console.warn("GA Event failed:", error);
+    }
+  };
+
   return (
     <a
       href={`https://wa.me/917093627596?text=${encodeURIComponent("Hi, I am interested in your aesthetic machines.")}`}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={handleClick}
       className="fixed bottom-6 right-6 z-[999] bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-110 flex items-center justify-center group"
       aria-label="Chat on WhatsApp"
     >

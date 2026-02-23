@@ -1,16 +1,28 @@
 import { Link } from "react-router-dom"
+import heroBg from "../assets/images/hero-bg.jpg";
 
 // Using the Pexels image as requested to prevent build errors.
-const homeBg = "https://images.pexels.com/photos/7254428/pexels-photo-7254428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+const homeBg = heroBg;
 
 function Hero() {
   return (
     <section 
       id="home" 
-      className="relative bg-cover bg-center bg-fixed py-32 px-8 text-center text-white"
-      style={{ backgroundImage: `url(${homeBg})` }}
+      className="relative py-32 px-8 text-center text-white overflow-hidden"
     >
+      {/* Optimized Hero Image for LCP */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={homeBg} 
+          alt="Aesthetic Clinic Technology" 
+          className="w-full h-full object-cover" 
+          fetchPriority="high"
+          loading="eager"
+          decoding="sync"
+        />
         <div className="absolute inset-0 bg-black/50"></div>
+      </div>
+
       <div className="relative z-10 max-w-4xl mx-auto">
           <span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold mb-4 border border-blue-200">
             Premium Aesthetic Technology

@@ -1,10 +1,12 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { Helmet } from "react-helmet-async"
+import SEO from "../components/SEO"
+import aboutBg from "../assets/images/about-bg.jpg";
 
 function About() {
   const [openIndex, setOpenIndex] = useState(null)
-  const bgImage = "https://neonest.in/wp-content/uploads/2024/03/240_F_748589104_gwv8VXxmGZODJDv2tkwMUslnGRHyXoap.jpg";
-  const sideImage = "https://hanizeini.net/wp-content/uploads/2023/12/2023-Trends-10-Medical-Devices-Shaping-Aesthetic-Dermatology-930x620.png";
+  const bgImage = aboutBg;
 
   const faqs = [
     {
@@ -31,12 +33,22 @@ function About() {
 
   return (
     <section id="about" className="relative px-6 py-24 bg-white overflow-hidden">
+      <SEO 
+        title="About Us" 
+        description="Learn about AMI Aesthetic, your trusted partner for advanced aesthetic laser machines, training, and clinic support in India."
+      />
+      <Helmet>
+        <link rel="preload" as="image" href={bgImage} />
+      </Helmet>
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
           src={bgImage} 
           alt="Background" 
           className="w-full h-full object-cover opacity-20"
+          fetchPriority="high"
+          loading="eager"
+          decoding="sync"
         />
       </div>
       {/* Organic Background Elements */}
@@ -45,25 +57,13 @@ function About() {
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header & Intro with Image */}
-        <div className="flex flex-col lg:flex-row items-center gap-16 mb-20">
-          <div className="w-full lg:w-1/2 relative">
-            {/* Organic Blob behind image */}
-            <div className="absolute inset-0 bg-blue-100 rounded-[40%_60%_70%_30%_/_40%_50%_60%_50%] transform rotate-6 scale-105 opacity-60 blur-lg"></div>
-            <div className="relative rounded-[2rem] lg:rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] overflow-hidden shadow-2xl border-4 border-white transform transition-transform hover:scale-[1.02] duration-500">
-              <img 
-                src={sideImage} 
-                alt="Advanced aesthetic laser machine in a modern clinic setting" 
-                className="w-full h-auto object-cover"
-              />
-            </div>
-          </div>
-          
-          <div className="w-full lg:w-1/2">
+        <div className="mb-20 max-w-4xl mx-auto text-center">
+          <div className="w-full">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">About Us</h2>
             <p className="text-xl text-blue-600 font-medium mb-6">
               Your Partner in Advanced Aesthetic & Laser Solutions
             </p>
-            <div className="text-gray-700 text-lg leading-relaxed space-y-6">
+            <div className="text-gray-700 text-lg leading-relaxed space-y-6 text-left">
               <p className="text-black">
                 We specialize in providing advanced laser and aesthetic machines tailored to meet the evolving needs of modern dermatology and aesthetic clinics. Our focus is on delivering reliable, clinically effective, and high-performance equipment that supports professionals in achieving safe and consistent treatment outcomes.
               </p>

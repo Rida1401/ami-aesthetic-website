@@ -1,10 +1,15 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import tailwindcss from '@tailwindcss/vite'; // Import the v4 plugin
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'; // Add this import
 
 export default defineConfig({
   plugins: [
     react(),
-    tailwindcss(), // Must be added here
+    ViteImageOptimizer({ // Add this plugin configuration
+      png: { quality: 80 },
+      jpeg: { quality: 80 },
+      webp: { quality: 80 },
+      avif: { quality: 70 },
+    }),
   ],
 });

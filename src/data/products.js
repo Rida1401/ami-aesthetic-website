@@ -1,16 +1,17 @@
-import img1 from "/src/assets/images/image1.png";
-import img2 from "/src/assets/images/image2.png";
-import img3 from "/src/assets/images/image3.png";
-import img4 from "/src/assets/images/image4.png";
-import img5 from "/src/assets/images/image5.png";
-import img6 from "/src/assets/images/image6.png";
-import img7 from "/src/assets/images/image7.png";
-import img8 from "/src/assets/images/image8.png";
-import img9 from "/src/assets/images/image9.png";
-import img10 from "/src/assets/images/image10.png";
-import img11 from "/src/assets/images/image11.png";
-import img12 from "/src/assets/images/image12.png";
-import img13 from "/src/assets/images/image13.png";
+import img1 from "../assets/images/image1.png";
+import img2 from "../assets/images/image2.png";
+import img3 from "../assets/images/image3.png";
+import img4 from "../assets/images/image4.png";
+import img5 from "../assets/images/image5.png";
+import img6 from "../assets/images/image6.png";
+import img7 from "../assets/images/image7.png";
+import img8 from "../assets/images/image8.png";
+import img9 from "../assets/images/image9.png";
+import img10 from "../assets/images/image10.png";
+import img11 from "../assets/images/image11.png";
+import img12 from "../assets/images/image12.png";
+import img13 from "../assets/images/image13.png";
+import img14 from "../assets/images/image.png";
 
 const products = [
   {
@@ -116,6 +117,14 @@ const products = [
     howItWorks: "Similar to the Q-Switched version but often used for different applications. This laser uses a specific wavelength (1064nm) that is highly effective at targeting hemoglobin (red pigment in blood). The heat seals off unwanted spider veins and vascular lesions, which then fade away.",
     benefits: "Safely and effectively treats visible veins, broken capillaries, and generalized facial redness.",
     image: img13
+  },
+  {
+    id: 14,
+    name: "Hydrafacial Alice Bubble",
+    description: "An advanced 7-in-1 aqua peel facial machine for deep cleansing, exfoliation, and hydration.",
+    howItWorks: "This multi-functional system uses vortex-fusion technology to exfoliate dead skin cells and extract impurities while simultaneously bathing the new skin with cleansing, hydrating, and moisturizing serums. The 'Alice Bubble' function generates CO₂ bubbles to gently exfoliate and increase blood flow.",
+    benefits: "Provides an instant radiant glow, minimizes pores, improves skin texture, and is suitable for all skin types with zero downtime.",
+    image: img14
   }
 ];
 

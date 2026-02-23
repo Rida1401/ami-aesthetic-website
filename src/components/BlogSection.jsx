@@ -2,6 +2,14 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import articles from "../data/articles";
+import blogTrends from "../assets/images/blog-trends.png";
+import blogCryo from "../assets/images/blog-cryo.jpg";
+import blogHair from "../assets/images/blog-hair.jpeg";
+import blogRf from "../assets/images/blog-rf.webp";
+import blogIpl from "../assets/images/blog-ipl.jpg";
+import blogChoose from "../assets/images/blog-choose.jpg";
+import blogSafety from "../assets/images/blog-safety.jpg";
+import blogDefault from "../assets/images/blog-default.jpg";
 
 function BlogSection({ isHome = false }) {
   useEffect(() => {
@@ -22,14 +30,14 @@ function BlogSection({ isHome = false }) {
 
   const getArticleImage = (title) => {
     const t = title.toLowerCase();
-    if (t.includes("emerging trends")) return "https://img.medestheticsmag.com/files/base/allured/all/image/2024/07/AdobeStock_846154258.668c5796544ce.png?auto=format%2Ccompress&q=70&rect=0%2C0%2C2411%2C2411&w=700";
-    if (t.includes("cryolipolysis")) return "https://illumeclinics.com/wp-content/uploads/2019/12/1024px-Cryolipolysis_-_A_depiction_of_cryolipolysis_procedure.jpg";
-    if (t.includes("hair removal")) return "https://skynnmd.com/wp-content/uploads/2023/04/Understanding-Laser-Hair-Removal-How-It-Works-to-Remove-Hair-Permanently-1024x683.jpeg";
-    if (t.includes("rf skin")) return "https://fashiongtonpost.com/wp-content/uploads/2025/04/rfmicroneedling_m.webp";
-    if (t.includes("ipl vs laser")) return "https://www.urbana.ie/wp-content/uploads/2021/06/header-How-Laser-is-Different-From-IPL-1600x900px.jpg";
-    if (t.includes("choosing")) return "https://www.lineerasermd.com/wp-content/uploads/2025/12/How-to-Choose-the-Right-Laser-for-Your-Skin-Type-Tone-and-Goals-scaled.jpg";
-    if (t.includes("safety")) return "https://tri-star-technologies.com/wp-content/uploads/2023/10/cLNYwaIsgj9NI8yNZTjFNaJJC73FfvYJ1694523676.jpg";
-    return "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800";
+    if (t.includes("emerging trends")) return blogTrends;
+    if (t.includes("cryolipolysis")) return blogCryo;
+    if (t.includes("hair removal")) return blogHair;
+    if (t.includes("rf") || t.includes("microneedling")) return blogRf;
+    if (t.includes("ipl vs laser")) return blogIpl;
+    if (t.includes("choosing")) return blogChoose;
+    if (t.includes("safety")) return blogSafety;
+    return blogDefault;
   };
 
   return (
@@ -66,7 +74,7 @@ function BlogSection({ isHome = false }) {
         )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {visibleArticles.map((article) => (
+          {visibleArticles.map((article, index) => (
             <div 
               key={article.id} 
               className="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full"
@@ -76,6 +84,10 @@ function BlogSection({ isHome = false }) {
                   src={getArticleImage(article.title)} 
                   alt={article.title}
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  loading={index < 3 ? "eager" : "lazy"}
+                  fetchPriority={index < 3 ? "high" : "auto"}
+                  width="800"
+                  height="450"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>

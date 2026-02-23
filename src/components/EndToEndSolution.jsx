@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import RevealOnScroll from "./RevealOnScroll";
 
 function EndToEndSolution() {
-  const bgImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBsVB26m5iofB24yilLGZHJuVQWhJS9dnEPA&s";
-
   return (
     <section className="relative py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       {/* Organic shapes */}

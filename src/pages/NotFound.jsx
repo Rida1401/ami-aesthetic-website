@@ -1,13 +1,13 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 function NotFound() {
-  useEffect(() => {
-    document.title = "404";
-  }, []);
-
   return (
     <section className="flex items-center justify-center min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 text-center px-6 pt-24">
+      <SEO 
+        title="404 - Page Not Found"
+        description="The page you are looking for does not exist."
+      />
       <div>
         <h1 className="text-6xl font-extrabold text-blue-600">404</h1>
         <h2 className="mt-4 text-3xl font-bold text-gray-800 tracking-tight sm:text-4xl">Page Not Found</h2>

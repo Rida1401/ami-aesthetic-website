@@ -4,15 +4,11 @@ import products from "../data/products.js"
 import ProductCard from "./ProductCard"
 
 function Products() {
-  useEffect(() => {
-    document.title = "Products";
-  }, []);
-
   const [searchTerm, setSearchTerm] = useState("")
   const [compareList, setCompareList] = useState([])
   const [showCompareModal, setShowCompareModal] = useState(false)
 
-  const filteredProducts = products.filter((product) =>
+  const filteredProducts = (Array.isArray(products) ? products : []).filter((product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     product.description.toLowerCase().includes(searchTerm.toLowerCase())
   )

@@ -4,64 +4,94 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 const StickyNavbar = () => {
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setIsScrolled(currentScrollY > 50);
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+        setIsOpen(false);
+      } else {
+        setIsVisible(true);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
+
   const isHome = location.pathname === '/';
   const isTransparent = isHome && !isScrolled;
 
-  const navStyle = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100%',
-    zIndex: 1000,
-    backgroundColor: isTransparent ? 'transparent' : 'rgba(255, 255, 255, 1.0)',
+  const navContainerStyle = {
+    backgroundColor: isTransparent ? 'transparent' : 'rgba(255, 255, 255, 0.8)',
     backdropFilter: isTransparent ? 'none' : 'blur(20px)',
     boxShadow: isTransparent ? 'none' : '0 4px 30px rgba(0, 0, 0, 0.05)',
-    padding: isScrolled ? '0.8rem 2rem' : '1.2rem 2rem',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
     transition: 'all 0.3s ease',
+    transform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
   };
 
-  const logoStyle = {
-    fontSize: '1.5rem',
-    fontWeight: 'bold',
-    textDecoration: 'none',
-    color: isTransparent ? '#fff' : '#333',
-    transition: 'color 0.3s ease',
-  };
+  const linkClass = ({ isActive }) => 
+    `text-base font-medium transition-colors duration-200 ${
+      isActive 
+        ? (isTransparent ? 'text-white font-bold' : 'text-blue-600 font-bold') 
+        : (isTransparent ? 'text-gray-100 hover:text-white' : 'text-gray-600 hover:text-blue-600')
+    }`;
 
-  const linkContainerStyle = {
-    display: 'flex',
-    gap: '20px',
-  };
-
-  const getLinkStyle = ({ isActive }) => ({
-    textDecoration: 'none',
-    color: isActive ? (isTransparent ? '#fff' : '#0056b3') : (isTransparent ? '#f0f0f0' : '#333'),
-    fontWeight: isActive ? '600' : '400',
-    fontSize: '1rem',
-    transition: 'color 0.2s ease',
-  });
+  const mobileLinkClass = ({ isActive }) => 
+    `block py-2 text-base font-medium transition-colors duration-200 ${
+      isActive ? 'text-blue-600 font-bold' : 'text-gray-600 hover:text-blue-600'
+    }`;
 
   return (
-    <nav style={navStyle}>
-      <Link to="/" style={logoStyle}>AMI AESTHETIC</Link>
-      <div style={linkContainerStyle}>
-        <NavLink to="/" style={getLinkStyle}>Home</NavLink>
-        
-        <NavLink to="/products" style={getLinkStyle}>Products</NavLink>
-        <NavLink to="/treatments" style={getLinkStyle}>Treatments</NavLink>
-        <NavLink to="/insights" style={getLinkStyle}>Insights</NavLink>
-        <NavLink to="/about" style={getLinkStyle}>About</NavLink>
-        <NavLink to="/contact" style={getLinkStyle}>Contact</NavLink>
+    <nav 
+      className={`fixed top-0 left-0 w-full z-50 px-6 md:px-12 flex justify-between items-center ${isScrolled ? 'py-3' : 'py-5'}`}
+      style={navContainerStyle}
+    >
+      <Link to="/" className={`text-2xl font-serif tracking-widest font-bold transition-all duration-300 ${isTransparent ? 'text-white' : 'bg-gradient-to-r from-blue-700 to-indigo-900 bg-clip-text text-transparent'}`}>
+        AMI AESTHETIC
+      </Link>
+
+      {/* Desktop Menu */}
+      <div className="hidden md:flex gap-8 items-center">
+        <NavLink to="/" className={linkClass}>Home</NavLink>
+        <NavLink to="/products" className={linkClass}>Products</NavLink>
+        <NavLink to="/treatments" className={linkClass}>Treatments</NavLink>
+        <NavLink to="/insights" className={linkClass}>Insights</NavLink>
+        <NavLink to="/about" className={linkClass}>About</NavLink>
+        <NavLink to="/contact" className={linkClass}>Contact</NavLink>
+      </div>
+
+      {/* Mobile Menu Button */}
+      <button 
+        className={`md:hidden text-2xl focus:outline-none transition-colors duration-300 ${isTransparent ? 'text-white' : 'text-gray-900'}`}
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Toggle menu"
+      >
+        {isOpen ? '×' : '☰'}
+      </button>
+
+      {/* Mobile Menu Dropdown */}
+      <div className={`absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100 flex flex-col gap-4 md:hidden transition-all duration-300 ease-in-out overflow-hidden px-6 ${isOpen ? 'max-h-96 opacity-100 py-6' : 'max-h-0 opacity-0 py-0'}`}>
+        <NavLink to="/" className={mobileLinkClass}>Home</NavLink>
+        <NavLink to="/products" className={mobileLinkClass}>Products</NavLink>
+        <NavLink to="/treatments" className={mobileLinkClass}>Treatments</NavLink>
+        <NavLink to="/insights" className={mobileLinkClass}>Insights</NavLink>
+        <NavLink to="/about" className={mobileLinkClass}>About</NavLink>
+        <NavLink to="/contact" className={mobileLinkClass}>Contact</NavLink>
       </div>
     </nav>
   );

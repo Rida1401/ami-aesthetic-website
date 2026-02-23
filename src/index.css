@@ -5,6 +5,10 @@
 @tailwind utilities;
 
 
+:root {
+  font-family: 'Montserrat', sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -15,5 +19,3 @@ html {
     display: none;
   }
 }
-
-

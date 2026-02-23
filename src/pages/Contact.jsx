@@ -1,61 +1,17 @@
-import { useState, useEffect } from "react";
+import SEO from "../components/SEO";
+import ContactForm from "../components/ContactForm";
 
 function Contact() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
-
-  const bgImage = "https://i.pinimg.com/1200x/4e/af/1b/4eaf1b42aad98ecfa57f6b806684326e.jpg";
-
-  useEffect(() => {
-    document.title = "Contact";
-  }, []);
-
-  useEffect(() => {
-    if (showPopup) {
-      const timer = setTimeout(() => {
-        setShowPopup(false);
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [showPopup]);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
-
-    try {
-      const response = await fetch("https://formsubmit.co/ajax/ami.aesthetic.in@gmail.com", {
-        method: "POST",
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-
-      if (response.ok) {
-        setShowPopup(true);
-        e.target.reset();
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
-    <section 
-      className="min-h-screen relative bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: `url(${bgImage})` }}
-    >
-      <div className="absolute inset-0 bg-black/60"></div>
+    <section className="min-h-screen relative bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+      <SEO 
+        title="Contact Us" 
+        description="Get in touch with AMI Aesthetic for inquiries about laser machines, rentals, or technical support. We are here to help your clinic grow."
+      />
+      
       
       <div className="relative z-10 pt-32 pb-10 text-center">
-        <h1 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg">
+        <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900">
           Contact Us
         </h1>
       </div>
@@ -78,6 +34,7 @@ function Contact() {
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-1">Phone</h3>
                     <p className="text-gray-600">+91 7093627596</p>
+                    <p className="text-gray-600">+91 7780176643</p>
                   </div>
                 </div>
 
@@ -108,90 +65,12 @@ function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white/80 backdrop-blur-md p-8 md:p-10 rounded-2xl shadow-lg border border-white/50">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
-            <form className="space-y-5" onSubmit={handleSubmit}>
-              <input type="hidden" name="_subject" value="New Inquiry from Website!" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_template" value="table" />
-
-              <div className="grid md:grid-cols-2 gap-5">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
-                  <input type="text" id="name" name="name" required className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50" placeholder="John Doe" />
-                </div>
-                <div>
-                  <label htmlFor="clinicName" className="block text-sm font-semibold text-gray-700 mb-2">Clinic Name</label>
-                  <input type="text" id="clinicName" name="clinic_name" className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50" placeholder="Skin Care Clinic" />
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-5">
-                <div>
-                  <label htmlFor="location" className="block text-sm font-semibold text-gray-700 mb-2">Location</label>
-                  <input type="text" id="location" name="location" required className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50" placeholder="City, State" />
-                </div>
-                <div>
-                  <label htmlFor="interest" className="block text-sm font-semibold text-gray-700 mb-2">I am interested in</label>
-                  <select id="interest" name="interest" className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50 text-gray-700">
-                    <option value="Buying Machine">Buying a Machine</option>
-                    <option value="Rental">Rental Options</option>
-                    <option value="Service">Service/Repair</option>
-                    <option value="General Inquiry">General Inquiry</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
-                <input type="email" id="email" name="email" required className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50" placeholder="john@example.com" />
-              </div>
-              <div>
-                <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
-                <input type="tel" id="phone" name="phone" required className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50" placeholder="+91 98765 43210" />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
-                <textarea id="message" rows="4" name="message" required className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-gray-50" placeholder="Tell us about your requirements..."></textarea>
-              </div>
-              <button type="submit" disabled={isSubmitting} className="w-full bg-blue-600 text-white py-4 rounded-lg font-bold hover:bg-blue-700 transition shadow-md transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2">
-                {isSubmitting ? (
-                  <>
-                    <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    Sending...
-                  </>
-                ) : (
-                  "Send Message"
-                )}
-              </button>
-            </form>
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 bg-white/90 backdrop-blur-md p-4 rounded-xl inline-block shadow-sm">Send us a Message</h2>
+            <ContactForm />
           </div>
         </div>
       </div>
-
-      {/* Success Popup */}
-      {showPopup && (
-        <div className="fixed bottom-6 right-6 z-[9999]">
-          <div className="bg-white p-6 rounded-xl shadow-2xl border border-gray-100 text-center max-w-sm w-full transform transition-all scale-100 animate-bounce-in">
-            <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-              <span className="text-2xl">✅</span>
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Thank You!</h3>
-            <p className="text-gray-600 text-sm mb-4">
-              We have received your message and will reach out to you at the earliest.
-            </p>
-            <button 
-              onClick={() => setShowPopup(false)}
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition shadow-md"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

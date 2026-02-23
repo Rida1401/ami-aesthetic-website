@@ -9,7 +9,7 @@ function Navbar() {
   const isDarkBg = ["/", "/about", "/contact"].includes(location.pathname)
 
   return (
-    <nav className={`flex justify-between items-center px-8 py-4 z-50 absolute top-0 left-0 w-full ${isDarkBg ? 'bg-transparent' : 'bg-white/90 backdrop-blur-md shadow-sm'}`}>
+    <nav className={`flex justify-between items-center px-4 md:px-8 py-4 z-50 absolute top-0 left-0 w-full ${isDarkBg ? 'bg-transparent' : 'bg-white/90 backdrop-blur-md shadow-sm'}`}>
       <Link to="/" className={`text-2xl font-bold ${isDarkBg ? 'text-white' : 'text-blue-600'}`}>
         AMI AESTHETIC
       </Link>
@@ -26,7 +26,7 @@ function Navbar() {
       <ul
         className={`${
           isOpen ? "flex" : "hidden"
-        } md:flex flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto bg-white md:bg-transparent shadow-md md:shadow-none p-4 md:p-0 gap-6 font-medium ${isOpen ? 'text-gray-700' : (isDarkBg ? 'text-white' : 'text-gray-700')}`}
+        } md:flex flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto bg-white md:bg-transparent shadow-md md:shadow-none p-4 md:p-0 gap-6 font-medium border-t border-gray-100 md:border-none ${isOpen ? 'text-gray-700' : (isDarkBg ? 'text-white' : 'text-gray-700')}`}
       >
         <li><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>
         <li><Link to="/products" onClick={() => setIsOpen(false)}>Products</Link></li>
