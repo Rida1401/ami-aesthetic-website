@@ -33,8 +33,8 @@ function Contact() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-1">Phone</h3>
-                    <p className="text-gray-600">+91 7093627596</p>
-                    <p className="text-gray-600">+91 7780176643</p>
+                    <a href="tel:+917093627596" className="text-gray-600 hover:text-blue-600 block">+91 7093627596</a>
+                    <a href="tel:+917780176643" className="text-gray-600 hover:text-blue-600 block">+91 7780176643</a>
                   </div>
                 </div>
 
@@ -44,7 +44,7 @@ function Contact() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-1">Email</h3>
-                    <p className="text-gray-600">ami.aesthetic.in@gmail.com</p>
+                    <a href="mailto:ami.aesthetic.in@gmail.com" className="text-gray-600 hover:text-blue-600">ami.aesthetic.in@gmail.com</a>
                   </div>
                 </div>
               </div>
