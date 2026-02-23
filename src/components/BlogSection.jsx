@@ -3,13 +3,13 @@ import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import articles from "../data/articles";
 import blogTrends from "../assets/images/blog-trends.png";
-import blogCryo from "../assets/images/blog-cryo.jpg";
-import blogHair from "../assets/images/blog-hair.jpeg";
-import blogRf from "../assets/images/blog-rf.webp";
-import blogIpl from "../assets/images/blog-ipl.jpg";
-import blogChoose from "../assets/images/blog-choose.jpg";
-import blogSafety from "../assets/images/blog-safety.jpg";
-import blogDefault from "../assets/images/blog-default.jpg";
+import blogCryo from "../assets/images/blog-cryo.png";
+import blogHair from "../assets/images/blog-hair.png";
+import blogRf from "../assets/images/blog-rf.png";
+import blogIpl from "../assets/images/blog-ipl.png";
+import blogChoose from "../assets/images/blog-choose.png";
+import blogSafety from "../assets/images/blog-safety.png";
+import blogDefault from "../assets/images/blog-default.png";
 
 function BlogSection({ isHome = false }) {
   useEffect(() => {
