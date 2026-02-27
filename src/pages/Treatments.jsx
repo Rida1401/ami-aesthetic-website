@@ -20,7 +20,7 @@ const Treatments = () => {
       <SEO 
         title="Treatments" 
         description="Discover advanced aesthetic treatments at Ami Aesthetic including laser hair reduction, skin rejuvenation, body contouring, acne care, and hair restoration."
-        keywords="aesthetic treatments, laser hair reduction, skin rejuvenation, acne treatment, body contouring, hair PRP"
+        keywords="aesthetic treatments, laser hair reduction, skin rejuvenation, acne treatment, body contouring, hair PRP, laser skin rejuvenation, laser skin resurfacing, laser pigmentation treatment, laser acne treatment, laser scar removal, laser skin tightening, laser anti aging treatment, laser glow treatment, laser hair removal, permanent hair reduction laser, laser hair removal for women, laser hair removal for face, full body laser hair removal, painless laser hair removal, is laser skin treatment safe, benefits of medical laser treatments, laser treatment before and after, how many laser sessions are needed, side effects of laser skin treatment"
       />
       {/* Organic Background Blobs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">

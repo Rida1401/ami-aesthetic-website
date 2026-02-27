@@ -16,7 +16,7 @@ function FloatingWhatsApp() {
 
   return (
     <a
-      href={`https://wa.me/917093627596?text=${encodeURIComponent("Hi, I am interested in your aesthetic machines.")}`}
+      href={`https://wa.me/917780176643?text=${encodeURIComponent("Hi, I am interested in your aesthetic machines.")}`}
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleClick}

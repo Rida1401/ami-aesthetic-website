@@ -175,7 +175,7 @@ function ProductCard({ product, isLink = false, vertical = false, onCompare, isS
               {/* Business-in-a-Box Downloads */}
               <div className="flex flex-wrap gap-3 mb-8">
                 <a 
-                  href={`https://wa.me/917093627596?text=Hi, I would like to request the technical brochure for the ${product.name}.`}
+                  href={`https://wa.me/917780176643?text=Hi, I would like to request the technical brochure for the ${product.name}.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 flex items-center justify-center gap-2 bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-200 transition text-sm border border-gray-200"
@@ -183,7 +183,7 @@ function ProductCard({ product, isLink = false, vertical = false, onCompare, isS
                   <span>📄</span> Request Brochure
                 </a>
                 <a 
-                  href={`https://wa.me/917093627596?text=Hi, I am interested in the Marketing Kit (social media posts/photos) for the ${product.name}.`}
+                  href={`https://wa.me/917780176643?text=Hi, I am interested in the Marketing Kit (social media posts/photos) for the ${product.name}.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 flex items-center justify-center gap-2 bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-200 transition text-sm border border-gray-200"
@@ -194,7 +194,7 @@ function ProductCard({ product, isLink = false, vertical = false, onCompare, isS
 
               <div className="mt-8">
                 <a
-                  href={`https://wa.me/917093627596?text=Hi, I am interested in the ${product.name} machine.`}
+                  href={`https://wa.me/917780176643?text=Hi, I am interested in the ${product.name} machine.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full text-center bg-green-600 text-white px-6 py-4 rounded-xl font-bold hover:bg-green-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-lg"

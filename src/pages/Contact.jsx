@@ -7,6 +7,7 @@ function Contact() {
       <SEO 
         title="Contact Us" 
         description="Get in touch with AMI Aesthetic for inquiries about laser machines, rentals, or technical support. We are here to help your clinic grow."
+        keywords="AMI Aesthetics, AMI Aesthetic Contact, aesthetic laser support, clinic equipment rental, laser treatment clinic near me, aesthetic laser clinic near me, laser skin clinic in hyderabad, medical laser treatments in hyderabad, best laser clinic in hyderabad"
       />
       
       
@@ -53,8 +54,8 @@ function Contact() {
             <div className="bg-white/80 backdrop-blur-md p-8 rounded-2xl shadow-lg">
               <h3 className="text-xl font-bold text-gray-900 mb-2">Need Urgent Support?</h3>
               <p className="text-gray-600 mb-4">We’ve prepared a quick troubleshooting guide for you.</p>
-              <a 
-                href="https://wa.me/917093627596" 
+              <a
+                href="https://wa.me/917780176643"
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-blue-600 font-semibold hover:underline flex items-center gap-2"

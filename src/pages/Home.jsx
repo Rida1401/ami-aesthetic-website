@@ -13,6 +13,7 @@ function Home() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "AMI Aesthetic",
+    "alternateName": "AMI Aesthetics",
     "url": "https://amiaesthetic.com",
     "description": "AMI Aesthetic provides gold-standard medical aesthetic laser machines, rental options, and end-to-end clinic solutions in India.",
     "telephone": "+917093627596",
@@ -31,7 +32,7 @@ function Home() {
       <SEO 
         title="Premium Laser Machines & Clinic Solutions" 
         description="AMI Aesthetic provides gold-standard medical aesthetic laser machines, rental options, and end-to-end clinic solutions in India."
-        keywords="aesthetic lasers, diode laser, hydrafacial machine, clinic rental, medical equipment India"
+        keywords="AMI Aesthetics, AMI Aesthetic, aesthetic lasers, diode laser, hydrafacial machine, clinic rental, medical equipment India, medical laser treatments, laser skin treatment, advanced laser treatments, cosmetic laser procedures, aesthetic laser clinic, professional laser therapy, clinical laser treatments, medical grade laser treatments, doctor recommended laser treatment, safe laser skin procedures, clinically approved laser treatment, advanced dermatology laser treatment, best laser treatment clinic, trusted laser skin clinic, affordable laser treatments, professional laser clinic, premium aesthetic laser services"
       />
       <Helmet>
         <link rel="preload" as="image" href={heroBg} />

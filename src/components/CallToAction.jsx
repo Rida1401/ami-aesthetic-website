@@ -23,7 +23,7 @@ function CallToAction() {
             Get a Free Consultation
           </Link>
           <a
-            href="https://wa.me/917093627596"
+            href="https://wa.me/917780176643"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-lg hover:bg-white/10 transition"

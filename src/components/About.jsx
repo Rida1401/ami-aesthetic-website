@@ -36,6 +36,7 @@ function About() {
       <SEO 
         title="About Us" 
         description="Learn about AMI Aesthetic, your trusted partner for advanced aesthetic laser machines, training, and clinic support in India."
+        keywords="AMI Aesthetics, AMI Aesthetic, aesthetic laser training, clinic support India"
       />
       <Helmet>
         <link rel="preload" as="image" href={bgImage} />
