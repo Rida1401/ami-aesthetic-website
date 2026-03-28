@@ -1,1 +1,10 @@
-/* /index.html 200
+# 301 Redirects for common misspellings and variations to the main domain
+/ami-aesthetics / 301
+/amiaesthetic / 301
+/amiaesthetics / 301
+/ami-esthetic / 301
+/ami-esthetics / 301
+/amy-aesthetic / 301
+/amy-aesthetics / 301
+/amiaestetic / 301
+/amiaestetics / 301

@@ -25,14 +25,14 @@ function Hero() {
 
       <div className="relative z-10 max-w-4xl mx-auto">
           <span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold mb-4 border border-blue-200">
-            Premium Aesthetic Technology
+            Medical Laser Machine Supplier & Wholesale Distributor
           </span>
           <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
-            <span className="text-white">Elevate Your Clinic with</span> <span className="text-blue-400">Advanced Lasers</span>
+            <span className="text-white">Premium</span> <span className="text-blue-400">Aesthetic Laser Machine</span> <span className="text-white">Manufacturer</span>
           </h1>
           
           <p className="text-white text-lg md:text-xl mb-10 leading-relaxed">
-            We provide gold-standard medical aesthetic devices for hair reduction, slimming, and skin rejuvenation. Trusted by top dermatologists.
+            India & UAE's trusted B2B partner for gold-standard medical aesthetic devices. High-ROI Diode, CO2, and HIFU solutions for dermatology clinics and distributors.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -53,7 +53,7 @@ function Hero() {
           {/* Statistics Section */}
           <div className="mt-16 pt-8 border-t border-white/20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             <div>
-              <p className="text-4xl font-bold text-white">8+</p>
+              <p className="text-4xl font-bold text-white">12+</p>
               <p className="text-blue-200 text-sm uppercase tracking-wider mt-1">Years Experience</p>
             </div>
             <div>

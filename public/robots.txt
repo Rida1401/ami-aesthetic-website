@@ -1,3 +1,5 @@
+# robots.txt for AMI Aesthetic
 User-agent: *
 Allow: /
+
 Sitemap: https://amiaesthetic.com/sitemap.xml

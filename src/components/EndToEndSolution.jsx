@@ -20,10 +20,10 @@ function EndToEndSolution() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { title: "Machine Sales", desc: "High-quality aesthetic lasers available for purchase with warranty." },
-            { title: "Rental Options", desc: "Flexible rental plans to suit your clinic's needs and budget." },
-            { title: "Pan-India Delivery", desc: "Reliable and insured logistics support across all states." },
-            { title: "Technician Support", desc: "24/7 technical assistance, maintenance, and on-site repairs." },
+            { title: "High-ROI Technology", desc: "Boost clinic profitability with medical-grade devices engineered for superior outcomes and durability." },
+            { title: "Flexible Asset Management", desc: "Optimize cash flow with customized rental models and low-interest EMI options for your business." },
+            { title: "Clinical Empowerment", desc: "Expert-led staff training and certification ensures your team operates with maximum confidence and safety." },
+            { title: "Business Continuity", desc: "Our pan-India service network provides rapid on-site repairs, ensuring zero downtime for your practice." },
           ].map((item, index) => (
             <RevealOnScroll key={index} delay={index * 200}>
               <div className="bg-white/80 backdrop-blur-sm p-8 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-300 border border-white/50 h-full group hover:-translate-y-2">

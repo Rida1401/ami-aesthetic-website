@@ -83,6 +83,20 @@ const ContactForm = () => {
         </div>
       </div>
       <div>
+        <label htmlFor="inquiry_type" className="block text-sm font-medium text-gray-700 mb-1">Inquiry Type</label>
+        <select 
+          name="inquiry_type" 
+          id="inquiry_type" 
+          className="w-full px-4 py-2 border-2 border-gray-400 rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-white"
+        >
+          <option value="purchase">Machine Purchase</option>
+          <option value="rental">Machine Rental</option>
+          <option value="distributor">Distributor/Wholesale Inquiry</option>
+          <option value="support">Technical Support</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div>
         <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
         <input type="text" name="subject" id="subject" className="w-full px-4 py-2 border-2 border-gray-400 rounded-lg focus:ring-blue-500 focus:border-blue-500" />
       </div>

@@ -31,15 +31,29 @@ function About() {
     }
   ]
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
     <section id="about" className="relative px-6 py-24 bg-white overflow-hidden">
       <SEO 
-        title="About Us" 
-        description="Learn about AMI Aesthetic, your trusted partner for advanced aesthetic laser machines, training, and clinic support in India."
-        keywords="AMI Aesthetics, AMI Aesthetic, aesthetic laser training, clinic support India"
+        title="Your Aesthetic Equipment Partner" 
+        description="AMI Aesthetic is a trusted B2B partner for dermatology clinics in India, providing gold-standard laser technology, clinical training, and dedicated technician support."
+        keywords="Ami aesthetic, Ami aesthetics, amiaestetic, amiaestetics, amiaesthetics, aesthetic equipment supplier India, medical laser wholesale, dermatology clinic solutions"
       />
       <Helmet>
         <link rel="preload" as="image" href={bgImage} />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -117,7 +131,7 @@ function About() {
           <div>
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Us</h3>
             <ul className="space-y-3">
-              {["Clinically trusted machines", "Flexible sales and rental models", "Timely delivery and professional installation", "Dedicated technician and after-sales support", "Honest guidance and clear communication"].map((item, index) => (
+              {["Maximize Clinic Profitability", "Scalable Rental & Purchase Models", "Certified Clinical Training", "24/7 Technical Reliability", "Strategic Business Consultation"].map((item, index) => (
                 <li key={index} className="flex items-center gap-3 text-gray-700">
                   <span className="h-2 w-2 bg-blue-500 rounded-full"></span>
                   {item}

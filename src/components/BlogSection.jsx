@@ -145,12 +145,6 @@ function BlogSection({ isHome = false }) {
           <div className="prose text-gray-700 leading-relaxed whitespace-pre-line">
             {selectedArticle.content}
           </div>
-
-          <div className="mt-8 pt-6 border-t border-gray-100 flex justify-end">
-            <Link to="/contact" className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
-              Enquire About This
-            </Link>
-          </div>
         </div>
       </div>
     , document.body)}

@@ -69,10 +69,15 @@ const StickyNavbar = () => {
       <div className="hidden md:flex gap-8 items-center">
         <NavLink to="/" className={linkClass}>Home</NavLink>
         <NavLink to="/products" className={linkClass}>Products</NavLink>
-        <NavLink to="/treatments" className={linkClass}>Treatments</NavLink>
         <NavLink to="/insights" className={linkClass}>Insights</NavLink>
         <NavLink to="/about" className={linkClass}>About</NavLink>
         <NavLink to="/contact" className={linkClass}>Contact</NavLink>
+        <Link 
+          to="/contact" 
+          className={`ml-4 px-5 py-2 rounded-full font-bold transition-all ${isTransparent ? 'bg-white text-blue-900 hover:bg-blue-50' : 'bg-blue-600 text-white hover:bg-blue-700 shadow-md'}`}
+        >
+          Get Quote
+        </Link>
       </div>
 
       {/* Mobile Menu Button */}
@@ -88,7 +93,6 @@ const StickyNavbar = () => {
       <div className={`absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100 flex flex-col gap-4 md:hidden transition-all duration-300 ease-in-out overflow-hidden px-6 ${isOpen ? 'max-h-96 opacity-100 py-6' : 'max-h-0 opacity-0 py-0'}`}>
         <NavLink to="/" className={mobileLinkClass}>Home</NavLink>
         <NavLink to="/products" className={mobileLinkClass}>Products</NavLink>
-        <NavLink to="/treatments" className={mobileLinkClass}>Treatments</NavLink>
         <NavLink to="/insights" className={mobileLinkClass}>Insights</NavLink>
         <NavLink to="/about" className={mobileLinkClass}>About</NavLink>
         <NavLink to="/contact" className={mobileLinkClass}>Contact</NavLink>

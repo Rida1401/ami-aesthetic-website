@@ -1,37 +1,7 @@
-import { useState } from "react";
-import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
-import articles from "../data/articles";
 import ProductSchema from "./ProductSchema";
 
-function ProductCard({ product, isLink = false, vertical = false, onCompare, isSelected }) {
-  const [showModal, setShowModal] = useState(false);
-
-  // Filter related articles based on product name/type
-  const relatedArticles = (Array.isArray(articles) ? articles : []).filter(article => {
-    const name = product.name.toLowerCase();
-    const id = article.id;
-
-    // Diode Laser -> Hair Removal (3), Choosing Laser (6), IPL vs Laser (5)
-    if (name.includes("diode") && (id === 3 || id === 6 || id === 5)) return true;
-
-    // Nd:YAG -> Choosing Laser (6), Safety (7)
-    if (name.includes("nd:yag") && (id === 6 || id === 7)) return true;
-
-    // IPL -> IPL vs Laser (5)
-    if (name.includes("ipl") && id === 5) return true;
-
-    // RF / HIFU / Microneedling -> RF Skin Tightening (4)
-    if ((name.includes("rf") || name.includes("hifu")) && id === 4) return true;
-
-    // Cryolipolysis / Cavitation -> Fat Reduction (2)
-    if ((name.includes("cryolipolysis") || name.includes("cavitation")) && id === 2) return true;
-    
-    // Emerging Tech -> Emerging Trends (1)
-    if ((name.includes("vaginal") || name.includes("blue light") || name.includes("lllt") || name.includes("fractional")) && id === 1) return true;
-
-    return false;
-  });
+function ProductCard({ product, vertical = false, onCompare, isSelected }) {
 
   return (
     <>
@@ -75,7 +45,7 @@ function ProductCard({ product, isLink = false, vertical = false, onCompare, isS
           <div className="w-full h-56 flex items-center justify-center mb-4 overflow-hidden">
             <img
               src={product.image}
-              alt={product.name}
+              alt={product.alt || product.name}
               className="h-48 w-auto object-contain transition-transform duration-500 group-hover:scale-110"
               loading="lazy"
             />
@@ -83,7 +53,7 @@ function ProductCard({ product, isLink = false, vertical = false, onCompare, isS
         ) : (
           <img
             src={product.image}
-            alt={product.name}
+            alt={product.alt || product.name}
             className="w-full md:w-1/2 h-56 object-contain"
             loading="lazy"
           />
@@ -101,132 +71,15 @@ function ProductCard({ product, isLink = false, vertical = false, onCompare, isS
             {product.description}
           </p>
 
-          {isLink ? (
-            <Link
-              to="/products"
-              className="inline-block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition font-medium"
-            >
-              Learn More
-            </Link>
-          ) : (
-            <button
-              onClick={() => setShowModal(true)}
-              className="inline-block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition font-medium"
-            >
-              Learn More
-            </button>
-          )}
+          <Link
+            to={`/products/${product.id}`}
+            className="inline-block bg-blue-600 text-white px-8 py-2.5 rounded-lg hover:bg-blue-700 transition-all font-bold shadow-md"
+          >
+            Learn More
+          </Link>
         </div>
-
       </div>
     </div>
-
-    {/* Modal */}
-    {showModal && createPortal(
-      <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm" onClick={() => setShowModal(false)}>
-        <div className="bg-white rounded-2xl p-6 md:p-8 max-w-5xl w-full relative shadow-2xl max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-          
-          <button 
-            onClick={() => setShowModal(false)}
-            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold"
-          >
-            ×
-          </button>
-
-          <div className="flex flex-col md:flex-row gap-8 md:items-start">
-            <div className="w-full md:w-1/2 flex flex-col">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">{product.name}</h3>
-              <div className="bg-gray-50 rounded-xl p-4 flex items-center justify-center">
-                <img src={product.image} alt={product.name} className="max-h-96 object-contain mx-auto" />
-              </div>
-            </div>
-            
-            <div className="w-full md:w-1/2">
-              <div className="flex flex-wrap gap-2 mb-6">
-                <span className="bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full border border-green-200">✅ Available for Sale</span>
-                <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full border border-blue-200">🔁 Available for Rent</span>
-                <span className="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full border border-yellow-200">🚚 Delivery Available</span>
-              </div>
-
-              <p className="text-gray-600 mb-6 leading-relaxed">{product.description}</p>
-
-              {product.howItWorks && (
-                <div className="mb-6 bg-blue-50/50 p-4 rounded-lg border border-blue-100">
-                  <h4 className="text-lg font-bold text-blue-800 mb-2 flex items-center gap-2">
-                    ⚙️ How It Works
-                  </h4>
-                  <p className="text-gray-700 leading-relaxed text-sm">
-                    {product.howItWorks}
-                  </p>
-                </div>
-              )}
-
-              {product.benefits && (
-                <div className="mb-8 bg-green-50 p-4 rounded-lg border border-green-100">
-                  <h4 className="text-lg font-bold text-green-800 mb-2 flex items-center gap-2">
-                    ✨ Client Benefits
-                  </h4>
-                  <p className="text-gray-700 leading-relaxed text-sm">
-                    {product.benefits}
-                  </p>
-                </div>
-              )}
-
-              {/* Business-in-a-Box Downloads */}
-              <div className="flex flex-wrap gap-3 mb-8">
-                <a 
-                  href={`https://wa.me/917780176643?text=Hi, I would like to request the technical brochure for the ${product.name}.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-200 transition text-sm border border-gray-200"
-                >
-                  <span>📄</span> Request Brochure
-                </a>
-                <a 
-                  href={`https://wa.me/917780176643?text=Hi, I am interested in the Marketing Kit (social media posts/photos) for the ${product.name}.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-200 transition text-sm border border-gray-200"
-                >
-                  <span>🎨</span> Request Marketing Kit
-                </a>
-              </div>
-
-              <div className="mt-8">
-                <a
-                  href={`https://wa.me/917780176643?text=Hi, I am interested in the ${product.name} machine.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full text-center bg-green-600 text-white px-6 py-4 rounded-xl font-bold hover:bg-green-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-lg"
-                >
-                  Enquire on WhatsApp
-                </a>
-                <p className="text-center text-xs text-gray-400 mt-3">
-                  *Financing & EMI options available upon request.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Related Articles Section */}
-          {relatedArticles.length > 0 && (
-            <div className="mt-10 pt-8 border-t border-gray-100">
-              <h4 className="text-lg font-bold text-gray-800 mb-4">Related Insights</h4>
-              <div className="grid md:grid-cols-2 gap-4">
-                {relatedArticles.map((article) => (
-                  <Link key={article.id} to="/insights" className="block p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition border border-gray-200">
-                    <h5 className="font-bold text-gray-900 text-sm mb-1">{article.title}</h5>
-                    <p className="text-xs text-gray-600 line-clamp-2">
-                      {article.summary}
-                    </p>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    , document.body)}
     </>
   );
 }

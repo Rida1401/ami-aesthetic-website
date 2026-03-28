@@ -15,15 +15,14 @@ function Home() {
     "name": "AMI Aesthetic",
     "alternateName": "AMI Aesthetics",
     "url": "https://amiaesthetic.com",
-    "description": "AMI Aesthetic provides gold-standard medical aesthetic laser machines, rental options, and end-to-end clinic solutions in India.",
+    "description": "Leading B2B medical laser machine supplier & aesthetic equipment manufacturer for dermatology clinics in India and UAE.",
     "telephone": "+917093627596",
     "address": {
       "@type": "PostalAddress",
-      "addressCountry": "IN"
+      "addressCountry": ["IN", "AE"]
     },
     "sameAs": [
-      "https://www.instagram.com/ami.aesthetic.in/",
-      "https://www.linkedin.com/in/ami-aesthetic"
+      "https://www.instagram.com/ami.aesthetic.in/"
     ]
   };
 

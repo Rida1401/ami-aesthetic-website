@@ -25,6 +25,10 @@ function Products() {
     }
   }
 
+  const handleDownloadPDF = () => {
+    window.print();
+  }
+
   return (
     <>
       {/* Main Content */}
@@ -118,10 +122,19 @@ function Products() {
               
               <button 
                 onClick={() => setShowCompareModal(false)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold z-10"
+                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold z-10 print:hidden"
               >
                 ×
               </button>
+
+              <div className="absolute top-4 right-16 print:hidden">
+                <button 
+                  onClick={handleDownloadPDF}
+                  className="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-bold transition shadow-sm border border-gray-200"
+                >
+                  <span>📥</span> Download Comparison (PDF)
+                </button>
+              </div>
 
               <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Machine Comparison</h3>
 
