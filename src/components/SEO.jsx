@@ -4,9 +4,9 @@ import { Helmet } from 'react-helmet-async';
 const SEO = ({ title, description, url, image, keywords }) => {
   const siteTitle = "AMI Aesthetic";
   const currentTitle = title ? `${title} | ${siteTitle}` : siteTitle;
-  const currentDescription = description || "Leading medical laser machine supplier & aesthetic equipment manufacturer. Wholesale Diode, CO2, and HIFU machines for clinics in India, UAE, and the Middle East. Request bulk pricing today.";
+  const currentDescription = description || "India's leading B2B supplier of premium aesthetic laser machines. High-ROI Diode, CO2, & HIFU equipment for dermatology clinics. Request bulk pricing today.";
   const currentUrl = url || "https://amiaesthetic.com" + window.location.pathname; // Ensure canonical URL is absolute
-  const defaultKeywords = "Ami aesthetic, Ami aesthetics, amiaesthetic, amiaesthetics, amyaesthetic, amyaesthetics, amia esthetic, amia esthetics, amiaestetic, amiaestetics, medical laser machine supplier, aesthetic laser machine manufacturer, diode laser hair removal machine supplier, CO2 laser machine price, HIFU machine for clinics, IPL machine supplier, aesthetic equipment wholesale, dermatology clinic equipment supplier, medical laser India, UAE, Middle East";
+  const defaultKeywords = "AMI Aesthetic, AMI Aesthetics, amiaesthetics, amyaesthetic, medical laser machine supplier, aesthetic laser manufacturer, diode laser supplier India, CO2 laser price, HIFU machine for clinics";
 
   return (
     <Helmet>

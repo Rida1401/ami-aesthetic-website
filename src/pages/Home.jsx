@@ -13,7 +13,7 @@ function Home() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "AMI Aesthetic",
-    "alternateName": "AMI Aesthetics",
+    "alternateName": ["AMI Aesthetics", "amiaesthetics", "amiaesthetic"],
     "url": "https://amiaesthetic.com",
     "description": "Leading B2B medical laser machine supplier & aesthetic equipment manufacturer for dermatology clinics in India and UAE.",
     "telephone": "+917093627596",

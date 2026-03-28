@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Suspense, lazy } from 'react';
 import StickyNavbar from './components/StickyNavbar';
 import Footer from './components/Footer';
@@ -22,7 +22,7 @@ const ProductDetail = lazy(() => import('./pages/ProductDetail'));
 
 function App() {
   return (
-    <>
+    <HelmetProvider>
       <BrowserRouter>
         <ErrorBoundary>
           <GoogleAnalytics />
@@ -48,7 +48,7 @@ function App() {
           <Footer />
         </ErrorBoundary>
       </BrowserRouter>
-    </>
+    </HelmetProvider>
   );
 }
 

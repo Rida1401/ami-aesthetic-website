@@ -19,10 +19,18 @@ const STATIC_PAGES = [
 
 // 2. Get Product IDs
 // Since we can't easily import ESM with images in Node, we parse the IDs from the file as text
-const productsFilePath = path.resolve(__dirname, '../src/data/products.js');
-const fileContent = fs.readFileSync(productsFilePath, 'utf8');
-const idMatches = fileContent.match(/id:\s*(\d+)/g) || [];
-const productIds = idMatches.map(m => m.match(/\d+/)[0]);
+const getIds = (filePath) => {
+  try {
+    const fullPath = path.resolve(__dirname, filePath);
+    const content = fs.readFileSync(fullPath, 'utf8');
+    const matches = content.match(/id:\s*(\d+)/g) || [];
+    return matches.map(m => m.match(/\d+/)[0]);
+  } catch (e) {
+    return [];
+  }
+};
+
+const productIds = getIds('../src/data/products.js');
 
 // 3. Generate XML entries
 const generateEntry = (url, priority = '0.7', changefreq = 'weekly') => `
