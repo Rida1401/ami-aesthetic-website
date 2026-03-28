@@ -35,7 +35,7 @@ const productIds = getIds('../src/data/products.js');
 // 3. Generate XML entries
 const generateEntry = (url, priority = '0.7', changefreq = 'weekly') => `
   <url>
-    <loc>${BASE_URL}${url}</loc>
+    <loc>${BASE_URL}${url}/</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
@@ -46,8 +46,8 @@ const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
   ${STATIC_PAGES.map(page => {
     const priority = page === '' ? '1.0' : '0.8';
     return generateEntry(page, priority, page === '' ? 'daily' : 'weekly');
-  }).join('')}
-  ${productIds.map(id => generateEntry(`/products/${id}`, '0.9', 'monthly')).join('')}
+  }).join('').trim()}
+  ${productIds.map(id => generateEntry(`/products/${id}`, '0.9', 'monthly')).join('').trim()}
 </urlset>`;
 
 // 4. Write to public and dist (if exists)
