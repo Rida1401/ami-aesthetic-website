@@ -36,6 +36,7 @@ const SEO = ({ title, description, url, image, keywords }) => {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "AMI Aesthetic",
+            "alternateName": ["AMI Aesthetics", "amiaesthetics", "amiaesthetic", "amyaesthetic","ami aesthetics", "amyaesthetics"],
             "url": "https://amiaesthetic.com",
             "logo": "https://amiaesthetic.com/logo.png", // Replace with your actual logo URL
             "contactPoint": {
